@@ -32,8 +32,8 @@ WHERE sales < 20.0;
 
 -- All the albums with a genre of "Rock".
 -- Why do these query results not include albums with a genre of "Hard rock" or "Progressive rock"?
--- (Because they do not match given string exactly)
+-- (Because they do not match given string exactly. Use the keyword 'LIKE' instead.)
 SELECT name
 AS 'Rock Albums: '
 FROM albums
-WHERE genre = 'Rock';
+WHERE genre LIKE '%rock%';
