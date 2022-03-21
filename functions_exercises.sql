@@ -4,8 +4,7 @@ USE employees;
 -- Use concat() to combine their first and last name together as a single column in your results.
 SELECT CONCAT(first_name, ' ', last_name)
 FROM employees
-WHERE last_name LIKE 'e%'
-  AND last_name LIKE '%e';
+WHERE last_name LIKE 'e%e';
 
 -- Find all employees born on Christmas — 842 rows.
 SELECT *
