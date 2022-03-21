@@ -17,8 +17,16 @@ LIMIT 5;
 -- The first five results are your first page. The five after that would be your second page, etc.
 -- Update the previous query to find the tenth page of results. The employee number results should be:
 
+-- expected output
 SELECT emp_no
 FROM salaries
 ORDER BY salary DESC
 LIMIT 4
 OFFSET 46;
+
+-- what makes sense
+SELECT emp_no
+FROM salaries
+ORDER BY salary DESC
+LIMIT 5
+OFFSET 45;
