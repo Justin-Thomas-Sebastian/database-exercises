@@ -27,3 +27,14 @@ WHERE year(titles.to_date) = 9999
     AND year(dept_emp.to_date) = 9999
     AND departments.dept_name = 'Customer Service'
 GROUP BY titles.title;
+
+-- Find the current salary of all current managers.
+SELECT DISTINCT departments.dept_name AS Department_Name,
+                CONCAT(employees.first_name, ' ', employees.last_name) AS Department_Manager,
+                salaries.salary
+FROM departments
+JOIN dept_manager ON departments.dept_no = dept_manager.dept_no
+JOIN employees ON dept_manager.emp_no = employees.emp_no
+JOIN salaries ON employees.emp_no = salaries.emp_no
+WHERE year(salaries.to_date) = 9999
+    AND year(dept_manager.to_date) = 9999;
