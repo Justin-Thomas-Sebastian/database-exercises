@@ -15,13 +15,6 @@ CREATE TABLE IF NOT EXISTS categories (
     PRIMARY KEY (category_id)
 );
 
-CREATE TABLE IF NOT EXISTS ad_category (
-    ad_id INT UNSIGNED NOT NULL,
-    category_id INT UNSIGNED NOT NULL,
-    FOREIGN KEY (ad_id) REFERENCES advertisements(ad_id),
-    FOREIGN KEY (category_id) REFERENCES categories(category_id)
-);
-
 CREATE TABLE IF NOT EXISTS advertisements (
     ad_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     user_id INT UNSIGNED NOT NULL,
@@ -34,6 +27,3 @@ CREATE TABLE IF NOT EXISTS advertisements (
     FOREIGN KEY (user_id) REFERENCES users (user_id),
     PRIMARY KEY (ad_id)
 );
-
-ALTER TABLE advertisements
-ADD FOREIGN KEY (category_id) REFERENCES ad_category(category_id);
