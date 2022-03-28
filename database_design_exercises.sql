@@ -32,6 +32,8 @@ CREATE TABLE IF NOT EXISTS advertisements (
     create_time DATETIME NOT NULL,
     update_time DATETIME NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (user_id),
-    FOREIGN KEY (category_id) REFERENCES ad_category(category_id),
     PRIMARY KEY (ad_id)
 );
+
+ALTER TABLE advertisements
+ADD FOREIGN KEY (category_id) REFERENCES ad_category(category_id);
